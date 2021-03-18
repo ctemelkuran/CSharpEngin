@@ -14,8 +14,18 @@ namespace Conditionals
             if (number == 10)
             {
                 Console.WriteLine("Number is 10");
-
             }
+            else if (number == 20)
+            {
+                Console.WriteLine("Number is 20");
+            }
+            else
+            {
+                Console.WriteLine("Not 10 or 20");
+            }
+
+            // Single-line if
+            Console.WriteLine(number == 12 ? "Number is 12" : "Number is not 12");
 
             Console.ReadLine();
         }
