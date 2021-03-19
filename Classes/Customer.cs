@@ -11,7 +11,7 @@ namespace Classes
 
         public int Id { get; set; }
 
-        //implemantasyon detayının gizlenmesi
+        //implemantasyon detayının gizlenmesi, eski versiyonlarda daha çok
         string _firstName;
         public string FirstName
         {
