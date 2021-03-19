@@ -8,11 +8,16 @@ namespace Classes
 {
     class Customer
     {
-        //field
-        public int Firstname;
 
-        //property, class'ın özelliklerini anlatacaksak
-        public int Id { get; set; }       
+        public int Id { get; set; }
+
+        //implemantasyon detayının gizlenmesi
+        string _firstName;
+        public string FirstName
+        {
+            get { return "Mr. " + _firstName; }
+            set { _firstName = value; }
+        }
         public string LastName { get; set; }
         public string City { get; set; }
     }
