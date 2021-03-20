@@ -10,12 +10,21 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
+            //InterfacesIntro();
+
+
+            Console.ReadLine();
+
+        }
+
+        private static void InterfacesIntro()
+        {
             PersonManager manager = new PersonManager();
 
             Customer customer = new Customer
             {
                 Id = 1,
-                FirstName = "Çığır",
+                FirstName = "cigir",
                 Address = "Izmir"
             };
 
@@ -23,14 +32,15 @@ namespace Interfaces
             {
                 Id = 1,
                 FirstName = "fatma",
-                Departmant ="Nutrition"
-                
+                Departmant = "Nutrition"
+
             };
             manager.Add(customer);
             manager.Add(student);
         }
 
         //Interface: temel nesne ile bütün nesneleri ondan implemente etmek için.
+        //Inheritance gibi kullanılır
         interface IPerson //abstract, soyut nesne
         {
             int Id { get; set; }
@@ -41,16 +51,16 @@ namespace Interfaces
         class Customer : IPerson
         {
             public int Id { get; set; }
-            public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string LastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
             public string Address { get; set; }
         }
 
         class Student : IPerson
         {
-            public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string LastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public int Id { get; set ; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
 
             public string Departmant { get; set; }
         }
