@@ -12,7 +12,8 @@ namespace Interfaces
         {
             //InterfacesIntro();
 
-
+            IPerson person = new Customer();
+            
             Console.ReadLine();
 
         }
