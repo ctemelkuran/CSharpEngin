@@ -51,6 +51,8 @@ namespace Interfaces
             Console.WriteLine("Oracle updated");
         }
     }
+
+    // polymorphism kullandık
     class CustomerManager
     {
         public void Add(ICustomerDal customerDal)

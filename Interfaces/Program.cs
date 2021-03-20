@@ -14,12 +14,28 @@ namespace Interfaces
 
             // Uygulama sadece 1 veritabanına bağlı olmasın diye
             // Katmanlar arası geçiş için interface kullanılabilir
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new SqlServerCustomerDal());
-            customerManager.Add(new OracleCustomerDal());
+            //NewDBAdded();
+
+            //bir veriyi iki veritabanına yazmak istiyoruz
+            ICustomerDal[] customerDals = new ICustomerDal[2] {
+                new SqlServerCustomerDal(),
+                new OracleCustomerDal()
+            };
+
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
 
             Console.ReadLine();
 
+        }
+
+        private static void NewDBAdded()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
+            customerManager.Add(new OracleCustomerDal());
         }
 
         private static void InterfacesIntro()
