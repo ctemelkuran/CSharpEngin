@@ -19,7 +19,15 @@ namespace Interfaces
                 Address = "Izmir"
             };
 
+            Student student = new Student
+            {
+                Id = 1,
+                FirstName = "fatma",
+                Departmant ="Nutrition"
+                
+            };
             manager.Add(customer);
+            manager.Add(student);
         }
 
         //Interface: temel nesne ile bütün nesneleri ondan implemente etmek için.
@@ -49,9 +57,9 @@ namespace Interfaces
 
         class PersonManager
         {
-            public void Add(Customer customer)
+            public void Add(IPerson person)
             {
-                Console.WriteLine(customer.FirstName);
+                Console.WriteLine(person.FirstName);
             }
         }
     }
