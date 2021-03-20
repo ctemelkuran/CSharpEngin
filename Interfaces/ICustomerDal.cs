@@ -14,6 +14,8 @@ namespace Interfaces
         void Delete();
     }
 
+    // Bir projen var ve farklı veri tabanlarını destekliyorsa SQL ve Oracle için ayrı kod yazarsın
+    // İkisini de ICustomerDal olarak yazabiliriz
     class SqlServerCustomerDal : ICustomerDal
     {
         public void Add()
@@ -29,6 +31,14 @@ namespace Interfaces
         public void Update()
         {
             Console.WriteLine("SQL updated");
+        }
+    }
+
+    class CustomerManager
+    {
+        public void Add(ICustomerDal customerDal)
+        {
+            customerDal.Add();
         }
     }
 }
