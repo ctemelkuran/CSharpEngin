@@ -12,7 +12,10 @@ namespace Interfaces
         {
             //InterfacesIntro();
 
-            IPerson person = new Customer();
+            // Uygulama sadece 1 veritabanına bağlı olmasın diye
+            // Katmanlar arası geçiş için interface kullanılabilir
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
             
             Console.ReadLine();
 
