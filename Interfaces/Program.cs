@@ -16,7 +16,8 @@ namespace Interfaces
             // Katmanlar arası geçiş için interface kullanılabilir
             CustomerManager customerManager = new CustomerManager();
             customerManager.Add(new SqlServerCustomerDal());
-            
+            customerManager.Add(new OracleCustomerDal());
+
             Console.ReadLine();
 
         }

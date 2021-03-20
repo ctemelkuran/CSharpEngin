@@ -34,6 +34,23 @@ namespace Interfaces
         }
     }
 
+    class OracleCustomerDal : ICustomerDal
+    {
+        public void Add()
+        {
+            Console.WriteLine("Oracle Added");
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("Oracle deleted");
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("Oracle updated");
+        }
+    }
     class CustomerManager
     {
         public void Add(ICustomerDal customerDal)
