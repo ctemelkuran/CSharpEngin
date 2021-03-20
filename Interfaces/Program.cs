@@ -17,6 +17,7 @@ namespace Interfaces
             //NewDBAdded();
 
             //bir veriyi iki veritabanına yazmak istiyoruz
+            // yeni bir veritabanını ICustomerDal'a ve arraye ekleyebiliriz
             ICustomerDal[] customerDals = new ICustomerDal[2] {
                 new SqlServerCustomerDal(),
                 new OracleCustomerDal()
