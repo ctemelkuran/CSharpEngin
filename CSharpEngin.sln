@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{7DCDF538-6C13-4C50-B9E7-6361DC755D1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecapDemo1", "RecapDemo1\RecapDemo1.csproj", "{8F75C5B4-86E3-4598-8A91-36B691A6E749}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7DCDF538-6C13-4C50-B9E7-6361DC755D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DCDF538-6C13-4C50-B9E7-6361DC755D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DCDF538-6C13-4C50-B9E7-6361DC755D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F75C5B4-86E3-4598-8A91-36B691A6E749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F75C5B4-86E3-4598-8A91-36B691A6E749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F75C5B4-86E3-4598-8A91-36B691A6E749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F75C5B4-86E3-4598-8A91-36B691A6E749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
