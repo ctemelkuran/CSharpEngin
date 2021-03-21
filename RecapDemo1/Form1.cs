@@ -34,6 +34,14 @@ namespace RecapDemo1
                     buttons[i, j].Left = left;
                     buttons[i, j].Top = top;
                     left += 40;
+                    if ((i+j)%2 == 0)
+                    {
+                        buttons[i, j].BackColor = Color.DarkGray;
+                    }
+                    else
+                    {
+                        buttons[i, j].BackColor = Color.White;
+                    }
                     this.Controls.Add(buttons[i, j]);
                 }
                 top += 40;
