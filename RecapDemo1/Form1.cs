@@ -20,7 +20,13 @@ namespace RecapDemo1
         private void Form1_Load(object sender, EventArgs e)
         {
             //8x8 button eklemek istiyoruz
-            Button[,] buttons = new Button[8,8];
+            //GenerateButton();
+
+        }
+
+        private void GenerateButton()
+        {
+            Button[,] buttons = new Button[8, 8];
             int top = 0;
             int left = 0;
             for (int i = 0; i < buttons.GetUpperBound(0); i++)
@@ -34,7 +40,7 @@ namespace RecapDemo1
                     buttons[i, j].Left = left;
                     buttons[i, j].Top = top;
                     left += 40;
-                    if ((i+j)%2 == 0)
+                    if ((i + j) % 2 == 0)
                     {
                         buttons[i, j].BackColor = Color.DarkGray;
                     }
@@ -47,8 +53,6 @@ namespace RecapDemo1
                 top += 40;
                 left = 0;
             }
-
-            
         }
     }
 }
