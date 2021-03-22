@@ -29,6 +29,7 @@ namespace RecapDemo2
     }
 
     //Bir class ın bir base class ı olmalı, örndeğin loglama işlemi ise
+    //Sadece bir class farklı ise interface yerine virtual veya abstract kullanılabilir
     class DatabaseLogger: ILogger
     {
         public void Log()
