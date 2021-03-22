@@ -12,7 +12,7 @@ namespace VirtualMethod
         {
             SqlServer sqlServer = new SqlServer();
             sqlServer.Add();
-
+        
 
             Console.ReadLine();
         }
