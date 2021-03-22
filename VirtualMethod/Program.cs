@@ -32,7 +32,7 @@ namespace VirtualMethod
         }
     }
 
-    // SqlServer için farklı bir içerik lazımsa
+    // SqlServer için farklı bir içerik lazımsa override  ile virtual method üzerine yazılabilir
     class SqlServer: Database
     {
         public override void Add()
