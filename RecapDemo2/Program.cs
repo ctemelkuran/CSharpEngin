@@ -44,7 +44,15 @@ namespace RecapDemo2
             Console.WriteLine("Logged to file!");
         }
     }
+    //örneğin önemli logları smsle istiyor
+    class SmsLogger:ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged to sms!");
+        }
 
+    }
     interface ILogger
     {
         void Log();
