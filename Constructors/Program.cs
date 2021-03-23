@@ -11,7 +11,7 @@ namespace Constructors
         static void Main(string[] args)
         {
             CustomerManager customerManager = new CustomerManager();
-            customerManager.Add();
+            customerManager.List();
 
             Console.ReadLine();
         }
@@ -19,13 +19,19 @@ namespace Constructors
 
     class CustomerManager
     {
-        public CustomerManager()
+        private int _count = 15; // private field _ ile başlar, parametre verilmezse 15
+        public CustomerManager(int count) // method içinde _ kullanılmaz
         {
+            _count = count;
+        }
 
+        public CustomerManager() // parametre yoksa bunu kullanır
+        {
+            
         }
         public void List()
         {
-            Console.WriteLine("Listed!");
+            Console.WriteLine("Listed {0} items!", _count);
         }
 
         public void Add()
