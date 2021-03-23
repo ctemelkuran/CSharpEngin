@@ -16,10 +16,12 @@ namespace Constructors
             Product product = new Product { Id = 1, Name = "Laptop" };
             Product product2 = new Product(2, "Computer");
 
-            EmployeeManager employeeManager = new EmployeeManager();
-            employeeManager.Logger = new DatabaseLogger();
+            EmployeeManager employeeManager = new EmployeeManager(new DatabaseLogger());
+ 
             employeeManager.Add();
 
+            PersonManager personManager = new PersonManager("Product");
+            personManager.Add();
             Console.ReadLine();
         }
     }
@@ -99,6 +101,32 @@ namespace Constructors
         {
             _logger.Log();
             Console.WriteLine("Added");
+        }
+    }
+
+    class BaseClass
+    {
+        string _entity;
+        public BaseClass(string entity)
+        {
+            _entity = entity;
+        }
+        public void Message()
+        {
+            Console.WriteLine("{0} message", _entity);
+        }
+    }
+    class PersonManager: BaseClass
+    {
+        public PersonManager(string entity):base(entity)
+        {
+
+        }
+
+        public void Add()
+        {
+            Console.WriteLine("Added");
+            Message();
         }
     }
 }
