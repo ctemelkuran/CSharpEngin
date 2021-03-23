@@ -22,6 +22,16 @@ namespace Constructors
 
             PersonManager personManager = new PersonManager("Product");
             personManager.Add();
+
+            // static nesneler ortaktır, genelde uzakta dururuz
+            Teacher.Number = 10;
+
+            Utilities.Validate();
+
+            Manager.Method1(); // static
+            Manager manager = new Manager(); // static değil
+            manager.Method2();
+
             Console.ReadLine();
         }
     }
@@ -127,6 +137,31 @@ namespace Constructors
         {
             Console.WriteLine("Added");
             Message();
+        }
+    }
+    //static class veya method olabilir
+    static class Teacher
+    {
+        public static int Number { get; set; }
+    }
+
+    static class Utilities
+    {
+        public static void Validate()
+        {
+            Console.WriteLine("Validation is done");
+        }
+    }
+
+    class Manager
+    {
+        public static void Method1()
+        {
+            Console.WriteLine("Method1 is done");
+        }
+        public void Method2()
+        {
+            Console.WriteLine("Method2 is done");
         }
     }
 }
