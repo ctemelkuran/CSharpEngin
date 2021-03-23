@@ -16,15 +16,20 @@ namespace AccessModifiers
     class Customer
     {
         // default olarak private dır tanımlandığı blok içinde geçerli
-        int id;
-    }
-
-    class Student
-    {
+        // protected'ın tek farkı inherited'da kullanılabilir
+        protected int Id { get; set; }
         public void Save()
         {
+
+        }
+    }
+
+    class Student:Customer
+    {
+        public void Save2()
+        {
             Customer customer = new Customer();
-            
+            I
         }
     }
 }
