@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AccessModifiers
 {
-    // private < protected < internal
+    // private < protected < internal < public
+
+    // private: tanımlandığı blok
+    // protected: inheritance'da 
+    // internal: mevcut assembly, projede
+    // public: herhangi bir projede
     class Program
     {
         static void Main(string[] args)
@@ -34,11 +39,11 @@ namespace AccessModifiers
         }
     }
 
-    //  bir class ın default u internal dır
+    // bir class ın default u internal dır
     // bağlı bulunduğu proje, assembly içinde referans ihtiyacı olmadan kullanabiliriz
     // class private, protected OLAMAZ, iç içe olursa ancak
     // class internal, public OLUR
-    internal class Course
+    public class Course
     {
         public string Name { get; set; }
 
