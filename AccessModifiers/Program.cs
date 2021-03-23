@@ -36,8 +36,15 @@ namespace AccessModifiers
 
     //  bir class ın default u internal dır
     // bağlı bulunduğu proje, assembly içinde referans ihtiyacı olmadan kullanabiliriz
+    // class private, protected OLAMAZ, iç içe olursa ancak
+    // class internal, public OLUR
     internal class Course
     {
         public string Name { get; set; }
+
+        private class NestedClass
+        {
+            // sadece nested ise private olabilir
+        }
     }
 }
