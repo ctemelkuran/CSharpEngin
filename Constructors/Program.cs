@@ -16,6 +16,9 @@ namespace Constructors
             Product product = new Product { Id = 1, Name = "Laptop" };
             Product product2 = new Product(2, "Computer");
 
+            EmployeeManager employeeManager = new EmployeeManager();
+            employeeManager.Logger = new DatabaseLogger();
+            employeeManager.Add();
 
             Console.ReadLine();
         }
@@ -59,5 +62,43 @@ namespace Constructors
         }
         public int Id { get; set; }
         public string Name { get; set; }
+    }
+
+
+    interface ILogger
+    {
+        void Log();
+    }
+
+    class DatabaseLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged to db!");
+        }
+
+    }
+
+
+    class FileLogger: ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged to file!");
+        }
+    }
+
+    class EmployeeManager
+    {
+        private ILogger _logger;
+        public EmployeeManager(ILogger logger)
+        {
+            _logger = logger;
+        }
+        public void Add()
+        {
+            _logger.Log();
+            Console.WriteLine("Added");
+        }
     }
 }
