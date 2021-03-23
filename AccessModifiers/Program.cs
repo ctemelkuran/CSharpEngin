@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccessModifiers
 {
+    // private < protected < internal
     class Program
     {
         static void Main(string[] args)
@@ -29,7 +30,14 @@ namespace AccessModifiers
         public void Save2()
         {
             Customer customer = new Customer();
-            I
+            // Id kullanılabilitor
         }
+    }
+
+    //  bir class ın default u internal dır
+    // bağlı bulunduğu proje, assembly içinde referans ihtiyacı olmadan kullanabiliriz
+    internal class Course
+    {
+        public string Name { get; set; }
     }
 }
