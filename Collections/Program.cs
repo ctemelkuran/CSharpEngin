@@ -15,14 +15,25 @@ namespace Collections
 
             //ArrayList();
 
+            //List();
+
+
+
+            Console.ReadLine();
+        }
+
+        private static void List()
+        {
             //I can only work with string in this collection
             List<string> cities = new List<string>();
             cities.Add("Izmir");
 
-            foreach (var city in cities)
-            {
-                Console.WriteLine(city);
-            }
+            //Console.WriteLine(cities.Contains("Ankara"));
+
+            //foreach (var city in cities)
+            //{
+            //    Console.WriteLine(city);
+            //}
 
             // List içine class alabilir
             //List<Customer> customers = new List<Customer>();
@@ -36,14 +47,45 @@ namespace Collections
                 new Customer { Id = 2, FirstName = "Fatma" }
             };
 
+
+
+            var customer2 = new Customer
+            {
+                Id = 3,
+                FirstName = "Zeytin"
+            };
+            customers.Add(customer2);
+
+            //AddRange ile liste eklenebilir
+            customers.AddRange(new Customer[2]
+            {
+                new Customer{Id = 4, FirstName="Arven"},
+                new Customer{Id = 5, FirstName="Jon"}
+            });
+
+
+
+            //customers.Clear listedeki elemanları siler
+
+            var index = customers.IndexOf(customer2); // aramaya baştan başlar
+            customers.Add(customer2);
+            var lastIndex = customers.LastIndexOf(customer2); // aramaya sondan başlar
+            //Console.WriteLine("Index : {0}", lastIndex);
+
+            customers.Insert(0, customer2);
+
+            customers.Remove(customer2); // ilk bulduğunu siler
+            customers.RemoveAll(c => c.FirstName == "Zeytin"); //predicate bütün bulduklarını siler
+
+
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer.FirstName);
             }
 
-
-
-            Console.ReadLine();
+            // Count method
+            var count = customers.Count;
+            Console.WriteLine("Count : {0}", count);
         }
 
         private static void ArrayList()
