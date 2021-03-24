@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constructors", "Constructor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceAndValueType", "ReferenceAndValueType\ReferenceAndValueType.csproj", "{CF944B58-7263-45CB-AE13-045F0D3681F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{156C515B-59A5-46C5-BB74-AFF0C90C5A05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{CF944B58-7263-45CB-AE13-045F0D3681F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF944B58-7263-45CB-AE13-045F0D3681F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF944B58-7263-45CB-AE13-045F0D3681F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156C515B-59A5-46C5-BB74-AFF0C90C5A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156C515B-59A5-46C5-BB74-AFF0C90C5A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156C515B-59A5-46C5-BB74-AFF0C90C5A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156C515B-59A5-46C5-BB74-AFF0C90C5A05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
