@@ -16,8 +16,25 @@ namespace Collections
             //ArrayList();
 
             //List();
+            var customer3 = new Customer
+            {
+                Id = 3,
+                FirstName = "Zeytin"
+            };
+            // Anahtar, değer
+            Dictionary<Customer, string> dictionary = new Dictionary<Customer, string>();
+            dictionary.Add(customer3, "Yabancı");
+            //dictionary.Add("Film", "LOTR");
+            
 
+            //Console.WriteLine(dictionary["Kitap"]);
+            foreach (var item in dictionary)
+            {
+                Console.WriteLine(item.Key.FirstName);
+            }
 
+            //dictionary is a collection
+            Console.WriteLine(dictionary.ContainsKey(customer3));
 
             Console.ReadLine();
         }
