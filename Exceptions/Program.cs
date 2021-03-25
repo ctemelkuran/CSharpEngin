@@ -15,10 +15,15 @@ namespace Exceptions
                 string[] students = new string[3] { "Çığır", "Fatma", "Zeytin" };
                 students[3] = "Arven";
             }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
-                throw;
+                //Console.WriteLine(exception.InnerException);
+                
             }
             
 
