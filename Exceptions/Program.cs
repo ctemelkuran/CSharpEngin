@@ -10,8 +10,17 @@ namespace Exceptions
     {
         static void Main(string[] args)
         {
-            string[] students = new string[3] { "Çığır", "Fatma","Zeytin"};
-            students[3] = "Arven";
+            try
+            {
+                string[] students = new string[3] { "Çığır", "Fatma", "Zeytin" };
+                students[3] = "Arven";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+            
 
             Console.ReadLine();
         }
