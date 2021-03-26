@@ -46,6 +46,7 @@ namespace AdoNetDemo
             this.tbxUnitPriceUpdate = new System.Windows.Forms.TextBox();
             this.lnlUnitPriceUpdate = new System.Windows.Forms.Label();
             this.tbxStockAmountUpdate = new System.Windows.Forms.TextBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
             this.gbxAdd.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
@@ -55,9 +56,9 @@ namespace AdoNetDemo
             // 
             this.dgwProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProducts.Location = new System.Drawing.Point(12, 26);
+            this.dgwProducts.Location = new System.Drawing.Point(12, 45);
             this.dgwProducts.Name = "dgwProducts";
-            this.dgwProducts.Size = new System.Drawing.Size(649, 150);
+            this.dgwProducts.Size = new System.Drawing.Size(606, 150);
             this.dgwProducts.TabIndex = 0;
             this.dgwProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProducts_CellClick);
             // 
@@ -211,11 +212,22 @@ namespace AdoNetDemo
             this.tbxStockAmountUpdate.Size = new System.Drawing.Size(100, 21);
             this.tbxStockAmountUpdate.TabIndex = 4;
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(482, 12);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 409);
+            this.ClientSize = new System.Drawing.Size(631, 409);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.gbxUpdate);
             this.Controls.Add(this.gbxAdd);
             this.Controls.Add(this.dgwProducts);
@@ -250,6 +262,7 @@ namespace AdoNetDemo
         private System.Windows.Forms.TextBox tbxUnitPriceUpdate;
         private System.Windows.Forms.Label lnlUnitPriceUpdate;
         private System.Windows.Forms.TextBox tbxStockAmountUpdate;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 

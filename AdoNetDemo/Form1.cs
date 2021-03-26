@@ -58,5 +58,16 @@ namespace AdoNetDemo
             LoadProducts();
             MessageBox.Show("Updated");
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
+            string removedItemName = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+            
+            _productDal.Delete(id);
+            LoadProducts();
+            MessageBox.Show(removedItemName + " is deleted!");
+
+        }
     }
 }

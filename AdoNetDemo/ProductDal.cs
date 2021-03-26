@@ -90,7 +90,19 @@ namespace AdoNetDemo
             sqlCommand.Parameters.AddWithValue("@name", product.Name);
             sqlCommand.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
             sqlCommand.Parameters.AddWithValue("@stockAmount", product.StockAmount);
-            sqlCommand.Parameters.AddWithValue("id", product.Id);
+            sqlCommand.Parameters.AddWithValue("@id", product.Id);
+            sqlCommand.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        public void Delete(int id)
+        {
+            ConnectionControl();
+            SqlCommand sqlCommand = new SqlCommand(
+                "Delete from Products where Id=@id", _connection);
+
+            sqlCommand.Parameters.AddWithValue("@id", id);
             sqlCommand.ExecuteNonQuery();
 
             _connection.Close();
