@@ -73,8 +73,27 @@ namespace AdoNetDemo
         {
             ConnectionControl();
             SqlCommand sqlCommand = new SqlCommand(
-                "Intert into Product values(@name, @unitPrice, @stockAmount)", _connection);
+                "Insert into Products values(@name, @unitPrice, @stockAmount)", _connection);
+            sqlCommand.Parameters.AddWithValue("@name", product.Name);
+            sqlCommand.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
+            sqlCommand.Parameters.AddWithValue("@stockAmount", product.StockAmount);
+            sqlCommand.ExecuteNonQuery();
+
+            _connection.Close();
         }
-        
+
+        public void Update(Product product)
+        {
+            ConnectionControl();
+            SqlCommand sqlCommand = new SqlCommand(
+                "Update Products set Name=@name, UnitPrice=@unitPrice, StockAmount=@stockAmount where Id=@id", _connection);
+            sqlCommand.Parameters.AddWithValue("@name", product.Name);
+            sqlCommand.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
+            sqlCommand.Parameters.AddWithValue("@stockAmount", product.StockAmount);
+            sqlCommand.Parameters.AddWithValue("id", product.Id);
+            sqlCommand.ExecuteNonQuery();
+
+            _connection.Close();
+        }
     }
 }
