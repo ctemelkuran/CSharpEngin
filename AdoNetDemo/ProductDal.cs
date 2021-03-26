@@ -10,17 +10,15 @@ namespace AdoNetDemo
 { // Normalde kurumsal mimaride IProductDal 'dan çekiyor olururuz
     public class ProductDal //Data Access Layer veya Object
     {
+        //integrated security=true veri tabanına direkt local erişim sağlar, bilgisayara login olmak yeterli
+        // uzaktaki veritabanı için false yapılır kullanıcı girilir 
+        //class içinde ancak methodların dışında ise başına _ konur
+        SqlConnection _connection = new SqlConnection(@"server=(localdb)\mssqllocaldb; initial catalog = ETradeCSharpEngin; integrated security=true");
         public List<Product> GetAll()
         {
-            //integrated security=true veri tabanına direkt local erişim sağlar, bilgisayara login olmak yeterli
-            // uzaktaki veritabanı için false yapılır kullanıcı girilir 
-            SqlConnection connection = new SqlConnection(@"server=(localdb)\mssqllocaldb; initial catalog = ETradeCSharpEngin; integrated security=true");
-            if (connection.State==ConnectionState.Closed)
-            {
-                connection.Open();
-            }
+            ConnectionControl();
             //sql komutu yazılır
-            SqlCommand sqlCommand = new SqlCommand("Select * from Products", connection);
+            SqlCommand sqlCommand = new SqlCommand("Select * from Products", _connection);
             //komut execute edilmeli
             SqlDataReader reader = sqlCommand.ExecuteReader();
 
@@ -40,29 +38,43 @@ namespace AdoNetDemo
 
 
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return products;
-             
+
         }
+
+        private void ConnectionControl()
+        {
+            if (_connection.State == ConnectionState.Closed)
+            {
+                _connection.Open();
+            }
+        }
+
         public DataTable GetAll2()
         {
-            //integrated security=true veri tabanına direkt local erişim sağlar, bilgisayara login olmak yeterli
-            // uzaktaki veritabanı için false yapılır kullanıcı girilir 
-            SqlConnection connection = new SqlConnection(@"server=(localdb)\mssqllocaldb; initial catalog = ETradeCSharpEngin; integrated security=true");
-            if (connection.State == ConnectionState.Closed)
+            if (_connection.State == ConnectionState.Closed)
             {
-                connection.Open();
+                _connection.Open();
             }
             //sql komutu yazılır
-            SqlCommand sqlCommand = new SqlCommand("Select * from Products", connection);
+            SqlCommand sqlCommand = new SqlCommand("Select * from Products", _connection);
             //komut execute edilmeli
             SqlDataReader reader = sqlCommand.ExecuteReader();
             DataTable dataTable = new DataTable(); // DataTable nesnesi kullanılmaz istenmez
             dataTable.Load(reader);
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return dataTable;
 
         }
+
+        public void Add(Product product)
+        {
+            ConnectionControl();
+            SqlCommand sqlCommand = new SqlCommand(
+                "Intert into Product values(@name, @unitPrice, @stockAmount)", _connection);
+        }
+        
     }
 }
