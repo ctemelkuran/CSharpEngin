@@ -26,15 +26,22 @@ namespace AdoNetDemo
 
             List<Product> products = new List<Product>();
 
-            while (reader.Read() // dataları okuyabildiğin sürece çalıştır
+            while (reader.Read()) // dataları okuyabildiğin sürece çalıştır
             {
-
+                Product product = new Product
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Name = reader["Name"].ToString(),
+                    StockAmount = Convert.ToInt32(reader["StockAmount"]),
+                    UnitPrice = Convert.ToDecimal(reader["UnitPrice"])
+                };
+                products.Add(product);
             }
 
 
             reader.Close();
             connection.Close();
-            return dataTable;
+            return products;
              
         }
         public DataTable GetAll2()
