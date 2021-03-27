@@ -16,5 +16,17 @@ namespace EntityFrameWorkDemo
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // using kullanarak Garbage Collector beklemeden nesneyi bellekten atıyoruz
+            // çünkü context pahalı bir nesne, IDisposable interface i .Net'e ait
+            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            {
+                //EntityFramework'te tabloya erişim kodu bu kadar
+                //AdoNetDemo örneğinde GetAll() yazmamız gerekti
+                dgwProducts.DataSource = context.Products.ToList();
+            }
+        }
     }
 }
