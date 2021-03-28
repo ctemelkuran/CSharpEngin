@@ -42,6 +42,48 @@ namespace EntityFrameWorkDemo
             });
             LoadProducts();
             MessageBox.Show("Added!");
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _productDal.Update(new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
+                Name = tbxNameUpdate.Text,
+                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
+            });
+            LoadProducts();
+            MessageBox.Show("Updated");
+
+        }
+
+        private void dgwProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbxNameUpdate.Text = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+            tbxUnitPriceUpdate.Text = dgwProducts.CurrentRow.Cells[2].Value.ToString();
+            tbxStockAmountUpdate.Text = dgwProducts.CurrentRow.Cells[3].Value.ToString();
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                string removedItemName = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+                _productDal.Delete(new Product
+                {
+                    Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value)
+                });
+                LoadProducts();
+
+                MessageBox.Show(removedItemName + " is deleted!");
+            }
+            
             
         }
     }
