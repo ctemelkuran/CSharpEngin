@@ -69,19 +69,20 @@ namespace EntityFrameWorkDemo
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-                                     "Confirm Delete!!",
+            string removedItemName = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete "+removedItemName+"?",
+                                     "Confirm Deletion",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                string removedItemName = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+                
                 _productDal.Delete(new Product
                 {
                     Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value)
                 });
                 LoadProducts();
 
-                MessageBox.Show(removedItemName + " is deleted!");
+                MessageBox.Show(removedItemName + " is deleted!","Removed.");
             }
             
             
