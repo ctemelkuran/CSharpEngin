@@ -17,16 +17,32 @@ namespace EntityFrameWorkDemo
             InitializeComponent();
         }
 
+
+        ProductDal _productDal = new ProductDal();
         private void Form1_Load(object sender, EventArgs e)
         {
-            // using kullanarak Garbage Collector beklemeden nesneyi bellekten atıyoruz
-            // çünkü context pahalı bir nesne, IDisposable interface i .Net'e ait
-            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            //EntityFramework'te tabloya erişim kodu bu kadar
+
+            LoadProducts();
+
+        }
+
+        private void LoadProducts()
+        {
+            dgwProducts.DataSource = _productDal.GetAll();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            _productDal.Add(new Product
             {
-                //EntityFramework'te tabloya erişim kodu bu kadar
-                //AdoNetDemo örneğinde GetAll() yazmamız gerekti
-                dgwProducts.DataSource = context.Products.ToList();
-            }
+                Name = tbxName.Text,
+                UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmount.Text)
+            });
+            LoadProducts();
+            MessageBox.Show("Added!");
+            
         }
     }
 }
