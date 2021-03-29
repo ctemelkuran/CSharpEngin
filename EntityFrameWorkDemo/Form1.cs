@@ -36,7 +36,8 @@ namespace EntityFrameWorkDemo
 
             //herhangi bir data geldi mi result atayarak görebiliriz
             var result = _productDal.GetByName(key);
-            var result2 = _productDal.GetAll().Where(p => p.Name.Contains(key.ToLower())).ToList();
+            //C# case sensitive olduğundan veri tabanından çekmiyorsak tolower işi çözer
+            //var result2 = _productDal.GetAll().Where(p => p.Name.Contains(key.ToLower())).ToList();
             dgwProducts.DataSource = result;
         }
 

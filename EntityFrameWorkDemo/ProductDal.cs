@@ -23,7 +23,7 @@ namespace EntityFrameWorkDemo
         {
             using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
             {
-                //EntityFramework'te tabloya erişim kodu bu kadar
+                //Where() Linq 'e ait bir IQueryable
 
                 return context.Products.Where(p => p.Name.Contains(key)).ToList(); 
             }
