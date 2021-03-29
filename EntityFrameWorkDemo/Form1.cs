@@ -101,5 +101,10 @@ namespace EntityFrameWorkDemo
         {
             SearchProducts(tbxSearch.Text);
         }
+
+        private void btnGetById_Click(object sender, EventArgs e)
+        {
+            _productDal.GetById(1002);
+        }
     }
 }

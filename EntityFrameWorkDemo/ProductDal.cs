@@ -28,6 +28,34 @@ namespace EntityFrameWorkDemo
                 return context.Products.Where(p => p.Name.Contains(key)).ToList(); 
             }
         }
+        public List<Product> GetByUnitPrice(decimal price)
+        {
+            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            {
+                //Veri tabanına SQL sorgusunu atıp sadece WHERE ile ihtiyaç olan gelir
+
+                return context.Products.Where(p => p.UnitPrice >= price).ToList();
+            }
+        }
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        {
+            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            {
+                //Veri tabanına SQL sorgusunu atıp sadece WHERE ile ihtiyaç olan gelir
+
+                return context.Products.Where(p => p.UnitPrice >= min && p.UnitPrice <= max).ToList();
+            }
+        }
+        public Product GetById(int id)
+        {
+            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            {
+                //EntityFramework'te tabloya erişim kodu bu kadar
+                //var result = context.Products.SingleOrDefault(p=>p.Id == id);
+                var result = context.Products.FirstOrDefault(p=>p.Id == id);
+                return result;
+            }
+        }
         public void Add(Product product)
         {
             // using kullanarak Garbage Collector beklemeden nesneyi bellekten atıyoruz
