@@ -87,5 +87,10 @@ namespace EntityFrameWorkDemo
             
             
         }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            Messa
+        }
     }
 }
