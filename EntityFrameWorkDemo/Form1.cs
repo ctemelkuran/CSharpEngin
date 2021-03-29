@@ -31,6 +31,13 @@ namespace EntityFrameWorkDemo
         {
             dgwProducts.DataSource = _productDal.GetAll();
         }
+        private void SearchProducts(string key)
+        {
+
+            //herhangi bir data geldi mi result atayarak görebiliriz
+            var result = _productDal.GetAll().Where(p => p.Name.Contains(key)).ToList();
+            dgwProducts.DataSource = result;
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -70,27 +77,27 @@ namespace EntityFrameWorkDemo
         private void btnRemove_Click(object sender, EventArgs e)
         {
             string removedItemName = dgwProducts.CurrentRow.Cells[1].Value.ToString();
-            var confirmResult = MessageBox.Show("Are you sure to delete "+removedItemName+"?",
+            var confirmResult = MessageBox.Show("Are you sure to delete " + removedItemName + "?",
                                      "Confirm Deletion",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                
+
                 _productDal.Delete(new Product
                 {
                     Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value)
                 });
                 LoadProducts();
 
-                MessageBox.Show(removedItemName + " is deleted!","Removed.");
+                MessageBox.Show(removedItemName + " is deleted!", "Removed.");
             }
-            
-            
+
+
         }
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-            Messa
+            SearchProducts(tbxSearch.Text);
         }
     }
 }
