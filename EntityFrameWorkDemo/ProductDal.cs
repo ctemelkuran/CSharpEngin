@@ -18,6 +18,16 @@ namespace EntityFrameWorkDemo
                 return context.Products.ToList();
             }
         }
+        //method that search by name for SearchProducts
+        public List<Product> GetByName(string key)
+        {
+            using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
+            {
+                //EntityFramework'te tabloya erişim kodu bu kadar
+
+                return context.Products.Where(p => p.Name.Contains(key)).ToList(); 
+            }
+        }
         public void Add(Product product)
         {
             // using kullanarak Garbage Collector beklemeden nesneyi bellekten atıyoruz
