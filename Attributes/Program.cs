@@ -43,7 +43,7 @@ namespace Attributes
         }
     }
 
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)] //attributeun hangi attributelarda kullanılabileceğini belirtir
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)] //attributeun hangi attributelarda kullanılabileceğini belirtir
     class RequiredPropertyAttribute : Attribute //attributeların sonuna Attribute yazılır
     {
 
