@@ -45,21 +45,26 @@ namespace Generics
 
     }
 
-    public class Product
+    public class Product: IEntity
     {
     }
-    public class Customer
+    public class Customer: IEntity
     {
         public string FirstName { get; set; }
     }
     interface ICustomerDal: IRepository<Customer>
     {
-        
+        //void Custom();
+    }
+    interface IEntity
+    {
+
     }
     // Generic nesne, interface olması gerekmez, class veya abstract class da olur
     //T: Type
-    interface IRepository<T>
-    {
+    //değer tipi ile kısıtlama = where T:struct
+    interface IRepository<T> where T:class, IEntity, new() //T'yi kısıtlayabiliriz, class referans tip demektir string olur, int olmaz
+    {                                      //sadece class istiyorsak ,new() ekleriz                         
         List<T> GetAll();
         T Get(int id);
         void Add(T entity);
@@ -93,7 +98,7 @@ namespace Generics
             throw new NotImplementedException();
         }
     }
-    class CustomerDal : ICustomerDal
+    class CustomerDal : ICustomerDal //Direkt IRepository<Customer> da kullanabilirdik ama ICustomerDal'a özel method ekleyemeyiz.
     {
         public void Add(Customer entity)
         {
