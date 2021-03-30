@@ -33,7 +33,7 @@ namespace Generics
     {
         
     }
-    // Generic
+    // Generic nesne, interface olması gerekmez, class veya abstract class da olur
     //T: Type
     interface IRepository<T>
     {
