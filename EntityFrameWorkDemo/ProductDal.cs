@@ -50,7 +50,7 @@ namespace EntityFrameWorkDemo
         {
             using (ETradeCSharpEnginContext context = new ETradeCSharpEnginContext())
             {
-                //EntityFramework'te tabloya erişim kodu bu kadar
+                
                 //var result = context.Products.SingleOrDefault(p=>p.Id == id);
                 var result = context.Products.FirstOrDefault(p=>p.Id == id);
                 return result;
