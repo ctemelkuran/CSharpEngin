@@ -10,6 +10,28 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+            Utilities utilities = new Utilities();
+            List<string> result = utilities.BuildList<string>("Ankara", "İzmir", "İstanbul");
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+            List<Customer> result2 = utilities.BuildList<Customer>
+                (new Customer { FirstName = "Çığır"}, new Customer {FirstName="Fatma" });
+            foreach (var customer in result2)
+            {
+                Console.WriteLine(customer.FirstName);
+            }
+            Console.ReadLine();
+        }
+    }
+
+    class Utilities
+    {
+        public List<T> BuildList<T>(params T[] items)
+        {
+            return new List<T>(items);
         }
     }
     interface IProductDal:IRepository<Product>
@@ -28,6 +50,7 @@ namespace Generics
     }
     public class Customer
     {
+        public string FirstName { get; set; }
     }
     interface ICustomerDal: IRepository<Customer>
     {
