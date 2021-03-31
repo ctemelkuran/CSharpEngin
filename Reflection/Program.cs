@@ -17,7 +17,9 @@ namespace Reflection
             // ÇAlışma anında yapmak istiyorsak Reflectionla yapabiliriz, ama performansı iyi değil
             var type = typeof(DortIslem);
 
-            var dortIslem = Activator.CreateInstance(type);
+            DortIslem dortIslem = (DortIslem)Activator.CreateInstance(type, 3,4);
+            Console.WriteLine(dortIslem.Carp(3, 4));
+            Console.WriteLine(dortIslem.Carp2());
 
             Console.ReadLine();
         }
