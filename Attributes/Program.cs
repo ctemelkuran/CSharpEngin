@@ -48,6 +48,7 @@ namespace Attributes
     {
 
     }
+
     [AttributeUsage(AttributeTargets.Class)]
     class ToTableAttribute : Attribute
     {

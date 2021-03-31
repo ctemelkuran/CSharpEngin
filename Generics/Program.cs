@@ -18,7 +18,7 @@ namespace Generics
             }
 
             List<Customer> result2 = utilities.BuildList<Customer>
-                (new Customer { FirstName = "Çığır"}, new Customer {FirstName="Fatma" });
+                (new Customer { FirstName = "Çığır" }, new Customer { FirstName = "Fatma" });
             foreach (var customer in result2)
             {
                 Console.WriteLine(customer.FirstName);
@@ -34,7 +34,7 @@ namespace Generics
             return new List<T>(items);
         }
     }
-    interface IProductDal:IRepository<Product>
+    interface IProductDal : IRepository<Product>
     {
         //List<Product> GetAll();
         //Product Get(int id);
@@ -45,14 +45,14 @@ namespace Generics
 
     }
 
-    public class Product: IEntity
+    public class Product : IEntity
     {
     }
-    public class Customer: IEntity
+    public class Customer : IEntity
     {
         public string FirstName { get; set; }
     }
-    interface ICustomerDal: IRepository<Customer>
+    interface ICustomerDal : IRepository<Customer>
     {
         //void Custom();
     }
@@ -63,7 +63,7 @@ namespace Generics
     // Generic nesne, interface olması gerekmez, class veya abstract class da olur
     //T: Type
     //değer tipi ile kısıtlama = where T:struct
-    interface IRepository<T> where T:class, IEntity, new() //T'yi kısıtlayabiliriz, class referans tip demektir string olur, int olmaz
+    interface IRepository<T> where T : class, IEntity, new() //T'yi kısıtlayabiliriz, class referans tip demektir string olur, int olmaz
     {                                      //sadece class istiyorsak ,new() ekleriz                         
         List<T> GetAll();
         T Get(int id);
