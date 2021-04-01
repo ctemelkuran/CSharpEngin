@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +18,14 @@ namespace Reflection
             // ÇAlışma anında yapmak istiyorsak Reflectionla yapabiliriz, ama performansı iyi değil
             var type = typeof(DortIslem);
 
-            DortIslem dortIslem = (DortIslem)Activator.CreateInstance(type, 3,4);
-            Console.WriteLine(dortIslem.Carp(3, 4));
-            Console.WriteLine(dortIslem.Carp2());
+            //DortIslem dortIslem = (DortIslem)Activator.CreateInstance(type, 3,4);
+            //Console.WriteLine(dortIslem.Carp(3, 4));
+            //Console.WriteLine(dortIslem.Carp2());
+
+            var instance  = Activator.CreateInstance(type, 3, 4);
+            MethodInfo methodInfo = instance.GetType().GetMethod("Topla2");
+            
+            Console.WriteLine(methodInfo.Invoke(instance, null));
 
             Console.ReadLine();
         }
