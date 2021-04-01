@@ -22,10 +22,27 @@ namespace Reflection
             //Console.WriteLine(dortIslem.Carp(3, 4));
             //Console.WriteLine(dortIslem.Carp2());
 
-            var instance  = Activator.CreateInstance(type, 3, 4);
+            var instance = Activator.CreateInstance(type, 3, 4);
             MethodInfo methodInfo = instance.GetType().GetMethod("Topla2");
-            
+
             Console.WriteLine(methodInfo.Invoke(instance, null));
+            Console.WriteLine("----------------------------");
+            var methods = type.GetMethods();
+
+            //DortIslem in tüm method ve parametrelerine ulaştık
+            foreach (var info in methods)
+            {
+                Console.WriteLine("Method: {0}", info.Name);
+                foreach (var parametersInfo in info.GetParameters())
+                {
+                    Console.WriteLine("Parametre: {0}", parametersInfo.Name);
+                }
+
+                foreach (var attribute in info.GetCustomAttributes())
+                {
+                    Console.WriteLine("Attribute : {0}", attribute.GetType().Name);
+                }
+            }
 
             Console.ReadLine();
         }
@@ -51,9 +68,18 @@ namespace Reflection
         {
             return _sayi1 + _sayi2;
         }
+        [MethodName("Parametresiz 2 sayıyı çarpma")]
         public int Carp2()
         {
             return _sayi1 * _sayi2;
+        }
+    }
+    [AttributeUsage(AttributeTargets.Method)]
+    class MethodNameAttribute : Attribute
+    {
+        public MethodNameAttribute(string name)
+        {
+
         }
     }
 }
