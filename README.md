@@ -1,1 +1,3 @@
-This is a repository for personal C# .NET Framework 4.7 example programs.
+# C# Subjects | .NET Framework
+
+This is a repository for personal C# .NET Framework example code snippets and programs.
