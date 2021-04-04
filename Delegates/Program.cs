@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Delegates
 {
     public delegate void MyDelegate(); //parametre almayan ve void döndüren operasyonlara delegelik yapar
+    public delegate void MyDelegate2(string text);
     class Program
     {
 
@@ -17,7 +18,13 @@ namespace Delegates
 
             MyDelegate myDelegate = customerManager.SendMessage;
             myDelegate += customerManager.ShowAlert; //yapılacak işleri belli şartlara göre toplayabiliriz
+
+            myDelegate = myDelegate - customerManager.SendMessage;
+
             myDelegate();
+
+            MyDelegate2 myDelegate2 = customerManager.SendMessage;
+            myDelegate2("naber");
 
             Console.ReadLine();
         }
@@ -28,9 +35,13 @@ namespace Delegates
         {
             Console.WriteLine("Hello");
         }
+        public void SendMessage(string message)
+        {
+            Console.WriteLine("Selam " + message);
+        }
         public void ShowAlert()
         {
-            Console.WriteLine("Alert!");
+            Console.WriteLine("Be careful!");
         }
     }
 }
