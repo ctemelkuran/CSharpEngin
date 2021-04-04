@@ -8,6 +8,7 @@ namespace Delegates
 {
     public delegate void MyDelegate(); //parametre almayan ve void döndüren operasyonlara delegelik yapar
     public delegate void MyDelegate2(string text);
+    public delegate int MyDelegate3(int number1, int number2);
     class Program
     {
 
@@ -21,10 +22,19 @@ namespace Delegates
 
             myDelegate = myDelegate - customerManager.SendMessage;
 
-            myDelegate();
 
             MyDelegate2 myDelegate2 = customerManager.SendMessage;
+
+            Matematik matematik = new Matematik();
+
+            MyDelegate3 myDelegate3 = matematik.Topla;
+
+            myDelegate();
             myDelegate2("naber");
+            var sonuc = myDelegate3(5, 2);
+            Console.WriteLine(sonuc);
+
+            
 
             Console.ReadLine();
         }
@@ -42,6 +52,15 @@ namespace Delegates
         public void ShowAlert()
         {
             Console.WriteLine("Be careful!");
+        }
+
+        
+    }
+    public class Matematik
+    {
+        public int Topla(int number1, int number2)
+        {
+            return number1 + number2;
         }
     }
 }
