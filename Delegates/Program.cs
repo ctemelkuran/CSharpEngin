@@ -13,9 +13,13 @@ namespace Delegates
         static void Main(string[] args)
         {
             CustomerManager customerManager = new CustomerManager();
-            customerManager.SendMessage();
+            //customerManager.SendMessage();
 
             MyDelegate myDelegate = customerManager.SendMessage;
+            myDelegate += customerManager.ShowAlert; //yapılacak işleri belli şartlara göre toplayabiliriz
+            myDelegate();
+
+            Console.ReadLine();
         }
     }
     public class CustomerManager
