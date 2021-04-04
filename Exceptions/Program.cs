@@ -12,6 +12,33 @@ namespace Exceptions
         {
             //ExceptioIntro();
 
+            //TryCatch();
+
+            // Lambda : =>
+            // C# ile methoda parametre olarak method gönderilebilir
+            //ActionDemo();
+
+            Func<int, int, int> add = Topla;
+            Console.WriteLine(add(3, 5));
+
+            Console.ReadLine();
+        }
+
+        static int Topla(int x, int y)
+        {
+            return x + y;
+        }
+
+        private static void ActionDemo()
+        {
+            HandleException(() =>
+            {
+                Find();
+            });
+        }
+
+        private static void TryCatch()
+        {
             try
             {
                 Find();
@@ -21,15 +48,6 @@ namespace Exceptions
 
                 Console.WriteLine(exception.Message);
             }
-
-            // Lambda : =>
-            // C# ile methoda parametre olarak method gönderilebilir
-            HandleException(()=> 
-            {
-                Find();
-            } );
-            
-            Console.ReadLine();
         }
 
         // bu bir kez yazılsa yeterli
